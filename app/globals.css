@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'WeddingFont';
+  src: url('/fonts/alsscrp.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #222b13;
+    --foreground: beige;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'WeddingFont', serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 56px;
+    margin: 0 0 10px;
+}
+
+h3 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #9ca3af;
+}
+img {
+    width: 50%;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+}
