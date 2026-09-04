@@ -24,7 +24,7 @@ export default function DevPage({
     <main >
       <section>
         <div className="initial relative">
-          <img className="block m-auto w-200" src="_R5_1802.jpg" />
+          <img className="block m-auto w-200" src="/_R5_1802.jpg" />
           <div>
             <h1 className="absolute inset-0 flex items-start justify-center pt-26 text-4xl font-bold text-white">
                Grecia & Fernando

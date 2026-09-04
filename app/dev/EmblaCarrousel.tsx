@@ -22,7 +22,7 @@ const EmblaCarousel = (props: PropType) => {
 
     const intervalId = window.setInterval(() => {
       emblaApi.scrollNext()
-    }, 3000)
+    }, 5000)
 
     return () => window.clearInterval(intervalId)
   }, [emblaApi])
@@ -34,12 +34,12 @@ const EmblaCarousel = (props: PropType) => {
           
           <div className="embla__slide" key="_R5_1939">
             <div className="embla__slide__number">
-              <img draggable="false" loading="eager" width="1200" height="900" decoding="async" src="_R5_1939.jpg" />
+              <img draggable="false" loading="eager" width="1200" height="900" decoding="async" src="/_R5_1939.jpg" />
             </div>
           </div>
           <div className="embla__slide" key="_R5_2152">
             <div className="embla__slide__number">
-              <img draggable="false" loading="eager" width="1200" height="900" decoding="async" src="_R5_2152.jpg" />
+              <img draggable="false" loading="eager" width="1200" height="900" decoding="async" src="/_R5_2152.jpg" />
             </div>
           </div>
           {/* <div className="embla__slide" key="_R5_1802">
@@ -49,12 +49,12 @@ const EmblaCarousel = (props: PropType) => {
           </div> */}
           <div className="embla__slide" key="_R5_2104">
             <div className="embla__slide__number">
-              <img draggable="false" loading="eager" width="1200" height="900" decoding="async" src="_R5_2104.jpg" />
+              <img draggable="false" loading="eager" width="1200" height="900" decoding="async" src="/_R5_2104.jpg" />
             </div>
           </div>
           <div className="embla__slide" key="_R5_2027">
             <div className="embla__slide__number">
-              <img draggable="false" loading="eager" width="1200" height="900" decoding="async" src="_R5_2027.jpg" />
+              <img draggable="false" loading="eager" width="1200" height="900" decoding="async" src="/_R5_2027.jpg" />
             </div>
           </div>
         </div>
