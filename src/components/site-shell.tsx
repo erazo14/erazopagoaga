@@ -1,0 +1,95 @@
+import { Heart, Menu, X } from 'lucide-react';
+import { type ReactNode, useState } from 'react';
+import { Link, useLocation } from 'wouter';
+
+type SiteShellProps = {
+  children: ReactNode;
+};
+
+export function SiteShell({ children }: SiteShellProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [location] = useLocation();
+
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <div className="paper-grain min-h-[100dvh] overflow-x-hidden bg-background text-foreground">
+      <header className="relative z-40 border-b border-border/70 bg-background/90 backdrop-blur-md">
+        <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center justify-between px-5 sm:px-8">
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="group flex items-center gap-3"
+            data-testid="link-home-logo"
+          >
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-primary/30 text-primary transition-transform duration-300 group-hover:rotate-[-12deg]">
+              <Heart size={15} strokeWidth={1.5} fill="currentColor" />
+            </span>
+            <span className="display-font text-[1.35rem] font-semibold tracking-[-.02em]">
+              G + F
+            </span>
+          </Link>
+
+          <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
+            <Link
+              href="/"
+              className={`eyebrow transition-colors hover:text-primary ${location === '/' ? 'text-primary' : 'text-muted-foreground'}`}
+              data-testid="link-invitation"
+            >
+              Save the Date
+            </Link>
+            {/* <Link
+              href="/rsvp"
+              className={`eyebrow transition-colors hover:text-primary ${location === '/rsvp' ? 'text-primary' : 'text-muted-foreground'}`}
+              data-testid="link-rsvp"
+            >
+              RSVP
+            </Link> */}
+            {/* <Link
+              href="/responses"
+              className={`eyebrow transition-colors hover:text-primary ${location === '/responses' ? 'text-primary' : 'text-muted-foreground'}`}
+              data-testid="link-responses"
+            >
+              For the couple
+            </Link> */}
+          </nav>
+
+          {/* <button
+            type="button"
+            aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+            onClick={() => setMenuOpen((open) => !open)}
+            className="grid h-10 w-10 place-items-center rounded-full border border-border md:hidden"
+            data-testid="button-toggle-navigation"
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button> */}
+        </div>
+
+        {/* {menuOpen && (
+          <div className="border-t border-border/70 bg-card px-5 py-5 md:hidden">
+            <nav className="mx-auto flex max-w-6xl flex-col gap-1" aria-label="Mobile navigation">
+              <Link href="/" onClick={closeMenu} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-secondary" data-testid="link-mobile-invitation">
+                Invitation
+              </Link>
+              <Link href="/rsvp" onClick={closeMenu} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-secondary" data-testid="link-mobile-rsvp">
+                RSVP
+              </Link>
+              <Link href="/responses" onClick={closeMenu} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-secondary" data-testid="link-mobile-responses">
+                Response notes
+              </Link>
+            </nav>
+          </div>
+        )} */}
+      </header>
+
+      <main>{children}</main>
+
+      <footer className="border-t border-border/70 bg-secondary/45">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-center sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-left">
+          <p className="display-font text-xl font-semibold">With love, Grecia & Fernando</p>
+          {/* <p className="text-xs tracking-[.08em] text-muted-foreground">Please reply when you can · We cannot wait to see you</p> */}
+        </div>
+      </footer>
+    </div>
+  );
+}
