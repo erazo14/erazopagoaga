@@ -12,13 +12,22 @@
 /.next/
 /out/
 /dist/
+dist-ssr
 
 # production
 /build
 
-# misc
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
 *.pem
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # debug
 npm-debug.log*
@@ -26,6 +35,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env*.local
+
 .env*.local
 .env
 
@@ -35,3 +46,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
