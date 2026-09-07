@@ -22,11 +22,12 @@ export function SiteShell({ children }: SiteShellProps) {
             className="group flex items-center gap-3"
             data-testid="link-home-logo"
           >
-            <span className="grid h-9 w-9 place-items-center rounded-full border border-primary/30 text-primary transition-transform duration-300 group-hover:rotate-[-12deg]">
-              <Heart size={15} strokeWidth={1.5} fill="currentColor" />
+            <span className="grid h-9 w-9 place-items-center text-primary transition-transform duration-300 group-hover:rotate-[-12deg]">
+              {/* <Heart size={15} strokeWidth={1.5} fill="currentColor" /> */}
+              <img src="/dev/favicon.png" alt="" />
             </span>
             <span className="display-font text-[1.35rem] font-semibold tracking-[-.02em]">
-              G + F
+              G & F
             </span>
           </Link>
 
