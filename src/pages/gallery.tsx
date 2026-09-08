@@ -1,8 +1,13 @@
 import { ArrowLeft, Images } from 'lucide-react';
 import { Link } from 'wouter';
+import { useEffect } from 'react';
 import { galleryImages } from '@/lib/gallery';
 
 export default function GalleryPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-20">
       <div className="flex flex-col gap-7 border-b border-border pb-10 sm:flex-row sm:items-end sm:justify-between">
@@ -25,7 +30,7 @@ export default function GalleryPage() {
         {galleryImages.map((image, index) => (
           <figure
             key={index}
-            className={`group overflow-hidden rounded-xl border border-border bg-card ${index % 5 === 0 ? '' : ''}`}
+            className={`group overflow-hidden rounded-xl border border-border bg-card`}
           >
             <div className={`overflow-hidden ${index % 5 === 0 ? 'aspect-[.78] sm:h-full' : 'aspect-[1.15]'}`}>
               <img
