@@ -79,12 +79,12 @@ export default function Home() {
               Keep the<br /><span className="italic">day free.</span>
             </h2>
             <div className="section-rule mt-8" />
-            <p className="mt-6 max-w-xs text-sm leading-7 text-muted-foreground">We&apos;re making a whole day of it. Come for the vows, stay for the dancing, and bring the people you love.</p>
+            <p className="mt-6 max-w-xs text-sm leading-7 ">We&apos;re making a whole day of it. Come for the vows, stay for the dancing, and bring the people you love.</p>
           </div>
           <div className="grid gap-0 sm:grid-cols-2">
             <div className="border-t border-border py-7 sm:pr-10">
               <CalendarDays size={20} strokeWidth={1.5} className="text-primary" />
-              <p className="eyebrow mt-5 text-muted-foreground">The date</p>
+              <p className="eyebrow mt-5">The date</p>
               <p className="display-font mt-2 text-3xl font-semibold" data-testid="text-event-date">{formatDate("2027-02-28")}</p>
             </div>
             {/* <div className="border-t border-border py-7 sm:pl-10 sm:border-l">

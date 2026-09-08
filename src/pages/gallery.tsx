@@ -13,7 +13,7 @@ export default function GalleryPage() {
       <div className="flex flex-col gap-7 border-b border-border pb-10 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <Link href="/" className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-primary" data-testid="link-gallery-back">
-            <ArrowLeft size={14} /> Hone
+            <ArrowLeft size={14} /> Home
           </Link>
           <p className="eyebrow mt-12 text-primary">A little gallery</p>
           <h1 className="display-font mt-4 max-w-2xl text-6xl font-semibold leading-[.88] tracking-[-.04em] sm:text-7xl">
