@@ -6,6 +6,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { PageNotFound } from '@/components/data-states';
 import { SiteShell } from '@/components/site-shell';
 import Home from '@/pages/home';
+import GalleryPage from '@/pages/gallery';
 import ResponsesPage from '@/pages/responses';
 import RsvpPage from '@/pages/rsvp';
 import {
@@ -23,6 +24,7 @@ function Router() {
       <SiteShell>
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/gallery" component={GalleryPage} />
           <Route path="/rsvp" component={RsvpPage} />
           <Route path="/responses" component={ResponsesPage} />
           <Route component={PageNotFound} />

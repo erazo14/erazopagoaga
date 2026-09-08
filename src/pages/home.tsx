@@ -1,8 +1,9 @@
-import { ArrowRight, CalendarDays, Clock3, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, CalendarDays, Images, Clock3, MapPin, Sparkles } from 'lucide-react';
 import { Link } from 'wouter';
 // import { useGetWedding } from '@workspace/api-client-react';
 import { Ornament } from '@/components/ornament';
-import { QueryError, WeddingLoading } from '@/components/data-states';
+// import { QueryError, WeddingLoading } from '@/components/data-states';
+import { GalleryCarousel } from '@/components/gallery-carousel';
 
 function formatDate(value: string) {
   const parsed = new Date(value);
@@ -121,6 +122,23 @@ export default function Home() {
           </Link>
         </div>
       </section> */}
+
+      <section id="gallery" className="border-t border-border/60 bg-secondary/25 px-5 py-20 sm:px-8 sm:py-28">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-center lg:gap-24">
+          <div>
+            <p className="eyebrow text-primary">A few memories</p>
+            <h2 className="display-font mt-5 text-5xl font-semibold leading-[.92] tracking-[-.035em] sm:text-6xl">
+              Little moments,<br /><span className="italic text-primary">kept close.</span>
+            </h2>
+            <div className="section-rule mt-8" />
+            <p className="mt-6 max-w-xs text-sm leading-7 text-muted-foreground">Five favorite frames on repeat, with a few more waiting in the full gallery.</p>
+            <Link href="/gallery" className="group mt-8 inline-flex items-center gap-3 rounded-full border border-primary/35 px-5 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground" data-testid="link-view-gallery">
+              <Images size={16} /> View gallery <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+          <GalleryCarousel />
+        </div>
+      </section>
     </div>
   );
 }

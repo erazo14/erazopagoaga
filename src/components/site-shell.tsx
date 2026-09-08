@@ -27,7 +27,7 @@ export function SiteShell({ children }: SiteShellProps) {
               <img src="/dev/favicon.png" alt="" />
             </span>
             <span className="display-font text-[1.35rem] font-semibold tracking-[-.02em]">
-              G & F
+              Grecia & Fernando
             </span>
           </Link>
 
