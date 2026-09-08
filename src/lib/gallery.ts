@@ -6,42 +6,42 @@ export type GalleryImage = {
 
 export const galleryImages: GalleryImage[] = [
   {
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85',
+    src: '/dev/_R5_1797.jpg',
     alt: 'A couple walking together outdoors',
     caption: 'The beginning of our forever',
   },
   {
-    src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=85',
+    src: '/dev/_R5_1768.jpg',
     alt: 'Wedding rings and flowers',
     caption: 'Little details, big feelings',
   },
   {
-    src: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1600&q=85',
+    src: '/dev/_R5_1802.webp',
     alt: 'Bride and groom celebrating together',
     caption: 'The people who make it special',
   },
   {
-    src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=85',
+    src: '/dev/_R5_1906.jpg',
     alt: 'Wedding table with flowers and candles',
     caption: 'A table waiting for good stories',
   },
   {
-    src: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1600&q=85',
+    src: '/dev/_R5_2095.jpg',
     alt: 'Wedding bouquet in warm light',
     caption: 'In every soft, happy detail',
   },
   {
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85',
+    src: '/dev/_R5_2119.jpg',
     alt: 'Couple embracing during a wedding',
     caption: 'Right where we belong',
   },
   {
-    src: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1600&q=85',
+    src: '/dev/_R5_2125.jpg',
     alt: 'Wedding celebration with flowers',
     caption: 'A little bit of magic',
   },
   {
-    src: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1600&q=85',
+    src: '/dev/_R5_2274.jpg',
     alt: 'Wedding venue decorated for guests',
     caption: 'Come stay awhile',
   },

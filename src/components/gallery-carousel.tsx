@@ -8,11 +8,11 @@ export function GalleryCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    // const timer = window.setInterval(() => {
-    //   setActiveIndex((current) => (current + 1) % featuredImages.length);
-    // }, 5000);
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % featuredImages.length);
+    }, 5000);
 
-    // return () => window.clearInterval(timer);
+    return () => window.clearInterval(timer);
   }, []);
 
   const showPrevious = () => {
@@ -25,13 +25,13 @@ export function GalleryCarousel() {
 
   return (
     <div className="relative overflow-hidden rounded-[1.5rem] border border-primary/15 bg-secondary/55 p-3 shadow-[0_20px_60px_hsl(var(--foreground)/.08)]" data-testid="gallery-carousel">
-      <div className="relative aspect-[1.15] overflow-hidden rounded-[1rem] bg-muted sm:aspect-[1.6]">
+      <div className="relative aspect-[1.15] overflow-hidden rounded-[1rem] bg-secondary/55 sm:aspect-[1.6]">
         {featuredImages.map((image, index) => (
           <img
             key={image.src}
             src={image.src}
             alt={image.alt}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-1000 ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`}
             loading={index === 0 ? 'eager' : 'lazy'}
           />
         ))}

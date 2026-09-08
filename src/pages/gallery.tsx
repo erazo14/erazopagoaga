@@ -25,13 +25,13 @@ export default function GalleryPage() {
         {galleryImages.map((image, index) => (
           <figure
             key={index}
-            className={`group overflow-hidden rounded-xl border border-border bg-card ${index % 5 === 0 ? 'sm:row-span-2' : ''}`}
+            className={`group overflow-hidden rounded-xl border border-border bg-card ${index % 5 === 0 ? '' : ''}`}
           >
             <div className={`overflow-hidden ${index % 5 === 0 ? 'aspect-[.78] sm:h-full' : 'aspect-[1.15]'}`}>
               <img
                 src={image.src}
                 alt={image.alt}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                className="h-full w-full object-contain bg-secondary/35 transition duration-700 group-hover:scale-[1.02]"
                 loading={index < 3 ? 'eager' : 'lazy'}
               />
             </div>
