@@ -1,4 +1,5 @@
 import { ArrowRight, CalendarDays, Images, Clock3, MapPin, Sparkles } from 'lucide-react';
+import { useI18n } from '@/lib/i18n';
 import { Link } from 'wouter';
 // import { useGetWedding } from '@workspace/api-client-react';
 import { Ornament } from '@/components/ornament';
@@ -6,12 +7,15 @@ import { Ornament } from '@/components/ornament';
 import { GalleryCarousel } from '@/components/gallery-carousel';
 
 function formatDate(value: string) {
+  const { language } = useI18n();
+  
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) return value;
-  return new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }).format(parsed);
+  return new Intl.DateTimeFormat(language === 'en' ? 'en-US': 'es-HN', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }).format(parsed);
 }
 
 export default function Home() {
+  const { t, language } = useI18n();
   // const weddingQuery = useGetWedding();
   // const wedding = weddingQuery.data;
 
@@ -26,10 +30,10 @@ export default function Home() {
         <div className="absolute left-[-5rem] top-16 h-48 w-48 rounded-full bg-secondary/65 blur-3xl sm:h-72 sm:w-72" />
         <div className="relative mx-auto grid max-w-6xl gap-16 px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-10">
           <div className="animate-rise-in">
-            <p className="eyebrow text-primary">A little note from us</p>
+            <p className="eyebrow text-primary">{t('home.note')}</p>
             <h1 className="display-font mt-6 max-w-3xl text-[4.3rem] font-medium leading-[.84] tracking-[-.05em] text-foreground sm:text-[6.8rem]">
-              We&apos;re <span className="italic text-primary">getting</span><br />
-              married.
+              {t('home.were')} <span className="italic text-primary">{t('home.getting')}</span><br />
+              {t('home.married')}
             </h1>
             {/* <p className="mt-8 max-w-md text-[1.05rem] leading-8 text-muted-foreground" data-testid="text-wedding-message">
               {wedding.message}
@@ -53,13 +57,13 @@ export default function Home() {
               <div className="relative flex h-full flex-col items-center justify-center overflow-hidden rounded-t-[9.25rem] rounded-b-[.55rem] border border-primary/15 bg-[radial-gradient(circle_at_50%_15%,hsl(var(--accent)/.25),transparent_40%),hsl(var(--secondary))] px-8 text-center">
                 <div className="absolute left-4 top-12 h-28 w-16 rounded-full border border-primary/20 opacity-70" />
                 <div className="absolute right-3 bottom-16 h-40 w-24 rounded-full border border-primary/20 opacity-70" />
-                <span className="eyebrow text-primary">Save the date</span>
-                <span className="script-font mt-6 text-3xl text-primary/80">for a day full of</span>
-                <span className="display-font mt-1 text-6xl font-semibold leading-none sm:text-7xl">good<br />people</span>
+                <span className="eyebrow text-primary">{t('home.saveDate')}</span>
+                <span className="script-font mt-6 text-3xl text-primary/80">{t('home.forDay')}</span>
+                <span className="display-font mt-1 text-6xl font-semibold leading-none sm:text-7xl">{t('home.good')}<br />{t('home.people')}</span>
                 <Ornament className="my-7" />
                 <p className="display-font text-2xl italic" data-testid="text-save-date">{formatDate("2027-02-28")}</p>
                 {/* <p className="mt-3 text-xs uppercase tracking-[.18em] text-muted-foreground" data-testid="text-save-date-venue">{wedding.venue}</p> */}
-                <div className="absolute bottom-5 left-0 right-0 text-[.62rem] uppercase tracking-[.2em] text-muted-foreground">G + F · together with their families</div>
+                <div className="absolute bottom-5 left-0 right-0 text-[.62rem] uppercase tracking-[.2em] text-muted-foreground">{t('home.together')}</div>
               </div>
             </div>
             <div className="animate-drift absolute -bottom-6 -left-3 grid h-16 w-16 place-items-center rounded-full bg-accent text-center text-[.65rem] font-bold uppercase leading-tight tracking-[.12em] text-accent-foreground shadow-lg sm:-left-7">
