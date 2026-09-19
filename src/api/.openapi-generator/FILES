@@ -1,0 +1,11 @@
+.openapi-generator-ignore
+apis/PingControllerApi.ts
+apis/index.ts
+docs/PingControllerApi.md
+docs/PingResponse.md
+docs/PingResponseHeaders.md
+index.ts
+models/PingResponse.ts
+models/PingResponseHeaders.ts
+models/index.ts
+runtime.ts
