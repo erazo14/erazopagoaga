@@ -1,12 +1,14 @@
-import { Heart, Menu, X } from 'lucide-react';
+import { Heart, LocateFixed, Menu, X } from 'lucide-react';
 import { type ReactNode, useState } from 'react';
 import { Link, useLocation } from 'wouter';
+import { useI18n } from '@/lib/i18n';
 
 type SiteShellProps = {
   children: ReactNode;
 };
 
 export function SiteShell({ children }: SiteShellProps) {
+  const { language, setLanguage } = useI18n();
   const [menuOpen, setMenuOpen] = useState(false);
   const [location] = useLocation();
 
@@ -83,7 +85,17 @@ export function SiteShell({ children }: SiteShellProps) {
         )} */}
       </header>
 
-      <main>{children}</main>
+      <main>
+         <div className="absolute top-7 right-10 bg-secondary/70 rounded-md z-99" >
+          <button
+            onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
+            className='mx-3'
+          >
+              {language === 'en' ? 'ES' : 'EN'}
+          </button>
+        </div>
+        {children}
+      </main>
 
       <footer className="border-t border-border/70 bg-secondary/45">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-center sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-left">
