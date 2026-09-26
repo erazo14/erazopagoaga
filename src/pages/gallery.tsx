@@ -32,7 +32,7 @@ export default function GalleryPage() {
             key={index}
             className={`group overflow-hidden rounded-xl border border-border bg-card`}
           >
-            <div className={`overflow-hidden ${index % 5 === 0 ? 'aspect-[.78] sm:h-full' : 'aspect-[1.15]'}`}>
+            <div className={`overflow-hidden ${index !== 4 ? 'aspect-[.78] sm:h-full' : 'aspect-[1.15]'}`}>
               <img
                 src={image.src}
                 alt={image.alt}
@@ -40,10 +40,10 @@ export default function GalleryPage() {
                 loading={index < 3 ? 'eager' : 'lazy'}
               />
             </div>
-            <figcaption className="px-4 py-4">
+            {/* <figcaption className="px-4 py-4">
               <p className="text-sm font-semibold">{image.caption}</p>
               <p className="mt-1 text-xs text-muted-foreground">G + F</p>
-            </figcaption>
+            </figcaption> */}
           </figure>
         ))}
       </div>
