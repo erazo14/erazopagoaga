@@ -89,6 +89,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="relative overflow-hidden">
+        <img
+            key='4'
+            src='/4.jpeg'
+            className={`inset-0 h-full w-full object-contain transition-opacity duration-1000 opacity-0}`}
+            loading='lazy'
+          />
+      </section>
 
       {/* when activate bottom section add this styles mx-auto max-w-6xl and remove bg-primary text-primary-foreground */}
       <section id="details" className="bg-primary text-primary-foreground scroll-mt-20 px-5 py-20 sm:px-8 sm:py-28">
