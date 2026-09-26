@@ -73,8 +73,8 @@ export default function Home() {
                 <div className="absolute left-4 top-12 h-28 w-16 rounded-full border border-primary/20 opacity-70" />
                 <div className="absolute right-3 bottom-16 h-40 w-24 rounded-full border border-primary/20 opacity-70" />
                 <span className="eyebrow text-primary">{t('home.saveDate')}</span>
-                <span className="script-font mt-6 text-3xl text-primary/80">{t('home.forDay')}</span>
-                <span className="display-font mt-1 text-6xl font-semibold leading-none sm:text-7xl">{t('home.good')}<br />{t('home.people')}</span>
+                <span className="script-font mt-6 text-2xl text-primary/80">{t('home.forDay')}</span>
+                <span className="display-font mt-1 text-4xl font-semibold leading-none sm:text-5xl">{t('home.good')}<br />{t('home.people')}</span>
                 <span className="script-font mt-6 text-3xl text-primary/80">{t('home.extarArch')}</span>
                 <Ornament className="my-7" />
                 <p className="display-font text-2xl italic" data-testid="text-save-date">{t('home.dates')}</p>
@@ -82,7 +82,7 @@ export default function Home() {
                 <div className="absolute bottom-5 left-0 right-0 text-[.62rem] uppercase tracking-[.2em] text-muted-foreground">{t('home.together')}</div>
               </div>
             </div>
-            <div className="animate-drift absolute -bottom-6 -left-3 grid h-16 w-16 place-items-center rounded-full bg-accent text-center text-[.65rem] font-bold uppercase leading-tight tracking-[.12em] text-accent-foreground shadow-lg sm:-left-7">
+            <div className="animate-drift absolute -bottom-6 -left-3 grid h-12 w-12 place-items-center rounded-full bg-accent text-center text-[.65rem] font-bold uppercase leading-tight tracking-[.12em] text-accent-foreground shadow-lg sm:-left-7">
               {t('home.rsvp')}
             </div>
           </div>

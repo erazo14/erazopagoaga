@@ -177,7 +177,7 @@ const translations = {
     'home.tellComing': 'Confirma tu asistencia',
     'home.details': 'Ver los detalles',
     'home.saveDate': 'Reserva la fecha',
-    'home.forDay': 'Queremos compartir con ustedes un día lleno de ',
+    'home.forDay': 'para un día lleno de',
     'home.good': 'alegría &',
     'home.people': 'momentos',
     'home.extarArch': 'inolvidalbles',
