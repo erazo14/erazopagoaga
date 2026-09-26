@@ -78,8 +78,9 @@ export default function Home() {
                 <span className="script-font mt-6 text-3xl text-primary/80">{t('home.extarArch')}</span>
                 <Ornament className="my-7" />
                 <p className="display-font text-2xl italic" data-testid="text-save-date">{t('home.dates')}</p>
+                <br/>
                 {/* <p className="mt-3 text-xs uppercase tracking-[.18em] text-muted-foreground" data-testid="text-save-date-venue">{wedding.venue}</p> */}
-                <div className="absolute bottom-5 left-0 right-0 text-[.62rem] uppercase tracking-[.2em] text-muted-foreground">{t('home.together')}</div>
+                <div className="absolute bottom-5 left-0 right-0 text-[.62rem] uppercase tracking-[.2em] text-muted-foreground">{t('home.together')}<br/>{t('home.together1')}</div>
               </div>
             </div>
             <div className="animate-drift absolute -bottom-6 -left-3 grid h-12 w-12 place-items-center rounded-full bg-accent text-center text-[.65rem] font-bold uppercase leading-tight tracking-[.12em] text-accent-foreground shadow-lg sm:-left-7">
