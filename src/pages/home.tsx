@@ -92,7 +92,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <img
             key='4'
-            src='/4.jpeg'
+            src='/home.jpeg'
             className={`inset-0 h-full w-full object-contain transition-opacity duration-1000 opacity-0}`}
             loading='lazy'
           />
