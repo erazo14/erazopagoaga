@@ -6,42 +6,47 @@ export type GalleryImage = {
 
 export const galleryImages: GalleryImage[] = [
   {
-    src: '/_R5_1797.jpg',
+    src: '/1.jpeg',
     alt: 'A couple walking together outdoors',
     caption: 'The beginning of our forever',
   },
   {
-    src: '/_R5_1768.jpg',
+    src: '/2.jpeg',
     alt: 'Wedding rings and flowers',
     caption: 'Little details, big feelings',
   },
   {
-    src: '/_R5_1802.webp',
+    src: '/3.jpeg',
     alt: 'Bride and groom celebrating together',
     caption: 'The people who make it special',
   },
   {
-    src: '/_R5_1906.jpg',
+    src: '/4.jpeg',
     alt: 'Wedding table with flowers and candles',
     caption: 'A table waiting for good stories',
   },
   {
-    src: '/_R5_2095.jpg',
+    src: '/5.jpeg',
     alt: 'Wedding bouquet in warm light',
     caption: 'In every soft, happy detail',
   },
   {
-    src: '/_R5_2119.jpg',
+    src: '/6.jpeg',
     alt: 'Couple embracing during a wedding',
     caption: 'Right where we belong',
   },
   {
-    src: '/_R5_2125.jpg',
+    src: '/7.jpeg',
     alt: 'Wedding celebration with flowers',
     caption: 'A little bit of magic',
   },
   {
-    src: '/_R5_2274.jpg',
+    src: '/8.jpeg',
+    alt: 'Wedding venue decorated for guests',
+    caption: 'Come stay awhile',
+  },
+  {
+    src: '/9.jpeg',
     alt: 'Wedding venue decorated for guests',
     caption: 'Come stay awhile',
   },
