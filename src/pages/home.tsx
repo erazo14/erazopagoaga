@@ -75,14 +75,15 @@ export default function Home() {
                 <span className="eyebrow text-primary">{t('home.saveDate')}</span>
                 <span className="script-font mt-6 text-3xl text-primary/80">{t('home.forDay')}</span>
                 <span className="display-font mt-1 text-6xl font-semibold leading-none sm:text-7xl">{t('home.good')}<br />{t('home.people')}</span>
+                <span className="script-font mt-6 text-3xl text-primary/80">{t('home.extarArch')}</span>
                 <Ornament className="my-7" />
-                <p className="display-font text-2xl italic" data-testid="text-save-date">{formatDate("2027-02-28")}</p>
+                <p className="display-font text-2xl italic" data-testid="text-save-date">{t('home.dates')}</p>
                 {/* <p className="mt-3 text-xs uppercase tracking-[.18em] text-muted-foreground" data-testid="text-save-date-venue">{wedding.venue}</p> */}
                 <div className="absolute bottom-5 left-0 right-0 text-[.62rem] uppercase tracking-[.2em] text-muted-foreground">{t('home.together')}</div>
               </div>
             </div>
             <div className="animate-drift absolute -bottom-6 -left-3 grid h-16 w-16 place-items-center rounded-full bg-accent text-center text-[.65rem] font-bold uppercase leading-tight tracking-[.12em] text-accent-foreground shadow-lg sm:-left-7">
-              Be<br />there
+              {t('home.rsvp')}
             </div>
           </div>
         </div>
@@ -95,16 +96,16 @@ export default function Home() {
             {/* <p className="eyebrow text-primary">The where &amp; when</p> */}
             <h2 className="display-font mt-5 text-5xl font-semibold leading-[.92] tracking-[-.035em] sm:text-6xl">
               {/* to the span add style text-primary when down section active */}
-              Keep the<br /><span className="italic">day free.</span>
+              {t('home.keepDay')}<br /><span className="italic">{t('home.dayFree')}</span>
             </h2>
             <div className="section-rule mt-8" />
-            <p className="mt-6 max-w-xs text-sm leading-7 ">We&apos;re making a whole day of it. Come for the vows, stay for the dancing, and bring the people you love.</p>
+            <p className="mt-6 max-w-xs text-sm leading-7 italic">{t('home.detailsCopy')}</p>
           </div>
           <div className="grid gap-0 sm:grid-cols-2">
             <div className="border-t border-border py-7 sm:pr-10">
               <CalendarDays size={20} strokeWidth={1.5} className="text-primary" />
-              <p className="eyebrow mt-5">The date</p>
-              <p className="display-font mt-2 text-3xl font-semibold" data-testid="text-event-date">{formatDate("2027-02-28")}</p>
+              <p className="eyebrow mt-5">{t('home.date')}</p>
+              <p className="display-font mt-2 text-3xl font-semibold" data-testid="text-event-date">{t('home.dates')}</p>
             </div>
             {/* <div className="border-t border-border py-7 sm:pl-10 sm:border-l">
               <Clock3 size={20} strokeWidth={1.5} className="text-primary" />
@@ -145,14 +146,14 @@ export default function Home() {
       <section id="gallery" className="border-t border-border/60 bg-secondary/25 px-5 py-20 sm:px-8 sm:py-28">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-center lg:gap-24">
           <div>
-            <p className="eyebrow text-primary">A few memories</p>
+            <p className="eyebrow text-primary">{t('home.memories')}</p>
             <h2 className="display-font mt-5 text-5xl font-semibold leading-[.92] tracking-[-.035em] sm:text-6xl">
-              Little moments,<br /><span className="italic text-primary">kept close.</span>
+              {t('home.littleMoments')}<br /><span className="italic text-primary">{t('home.heldClose')}</span>
             </h2>
             <div className="section-rule mt-8" />
-            <p className="mt-6 max-w-xs text-sm leading-7 text-muted-foreground">Five favorite frames on repeat, with a few more waiting in the full gallery.</p>
+            <p className="mt-6 max-w-xs text-sm leading-7 text-muted-foreground italic">{t('home.galleryCopy')}</p>
             <Link href="/gallery" className="group mt-8 inline-flex items-center gap-3 rounded-full border border-primary/35 px-5 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground" data-testid="link-view-gallery">
-              <Images size={16} /> View gallery <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              <Images size={16} /> {t('home.viewGallery')} <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
           <GalleryCarousel />

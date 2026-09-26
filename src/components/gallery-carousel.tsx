@@ -36,8 +36,8 @@ export function GalleryCarousel() {
           />
         ))}
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/75 via-foreground/15 to-transparent px-5 pb-5 pt-20 text-primary-foreground sm:px-7 sm:pb-7">
-          <p className="eyebrow text-primary-foreground/75">A few frames</p>
-          <p className="display-font mt-2 text-2xl font-semibold sm:text-3xl">{featuredImages[activeIndex].caption}</p>
+          {/* <p className="eyebrow text-primary-foreground/75">A few frames</p> */}
+          <p className="display-font mt-2 text-2xl font-semibold sm:text-3xl">Grecia & Fernando</p>
         </div>
         <button
           type="button"
