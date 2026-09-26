@@ -32,7 +32,7 @@ export default function GalleryPage() {
             key={index}
             className={`group overflow-hidden rounded-xl border border-border bg-card`}
           >
-            <div className={`overflow-hidden ${index !== 4 ? 'aspect-[.78] sm:h-full' : 'aspect-[1.15]'}`}>
+            <div className='overflow-hidden aspect-[.78] sm:h-full'>
               <img
                 src={image.src}
                 alt={image.alt}

@@ -1,8 +1,8 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { galleryImages } from '@/lib/gallery';
+import { carouselGalleryImages } from '@/lib/gallery';
 
-const featuredImages = galleryImages.slice(0, 5);
+const featuredImages = carouselGalleryImages;
 
 export function GalleryCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
