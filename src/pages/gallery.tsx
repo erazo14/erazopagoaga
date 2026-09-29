@@ -2,8 +2,10 @@ import { ArrowLeft, Images } from 'lucide-react';
 import { Link } from 'wouter';
 import { useEffect } from 'react';
 import { galleryImages } from '@/lib/gallery';
+import { useI18n } from '@/lib/i18n';
 
 export default function GalleryPage() {
+  const {t} = useI18n();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -13,16 +15,16 @@ export default function GalleryPage() {
       <div className="flex flex-col gap-7 border-b border-border pb-10 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <Link href="/" className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-primary" data-testid="link-gallery-back">
-            <ArrowLeft size={14} /> Home
+            <ArrowLeft size={14} /> {t('gallery.back')}
           </Link>
-          <p className="eyebrow mt-12 text-primary">A little gallery</p>
+          <p className="eyebrow mt-12 text-primary">{t('gallery.eyebrow')}</p>
           <h1 className="display-font mt-4 max-w-2xl text-6xl font-semibold leading-[.88] tracking-[-.04em] sm:text-7xl">
-            The days we<br /><span className="italic text-primary">keep close.</span>
+            {t('gallery.title')}<br /><span className="italic text-primary">{t('gallery.titleAccent')}</span>
           </h1>
         </div>
         <div className="max-w-xs sm:text-right">
           <Images size={22} className="mb-4 text-primary sm:ml-auto" strokeWidth={1.5} />
-          <p className="text-sm leading-6 text-muted-foreground">A few memories, details, and happy places from our story.</p>
+          <p className="text-sm leading-6 text-muted-foreground">{t('gallery.description')}</p>
         </div>
       </div>
 
