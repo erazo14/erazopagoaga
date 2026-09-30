@@ -5,8 +5,9 @@ import { Link } from 'wouter';
 import { Ornament } from '@/components/ornament';
 // import { QueryError, WeddingLoading } from '@/components/data-states';
 import { GalleryCarousel } from '@/components/gallery-carousel';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { PingControllerApi } from '@/api';
+import Countdown from '@/components/ui/count-down';
 
 function formatDate(value: string) {
   const { language } = useI18n();
@@ -19,6 +20,7 @@ function formatDate(value: string) {
 export default function Home() {
   const { t, language } = useI18n();
   const api = new PingControllerApi();
+  const date = '2027-02-27';
   // const weddingQuery = useGetWedding();
   // const wedding = weddingQuery.data;
 
@@ -96,6 +98,9 @@ export default function Home() {
             className={`inset-0 h-full w-full object-contain transition-opacity duration-1000 opacity-0}`}
             loading='lazy'
           />
+      </section>
+      <section>
+        <Countdown targetDate={date}></Countdown>
       </section>
 
       {/* when activate bottom section add this styles mx-auto max-w-6xl and remove bg-primary text-primary-foreground */}

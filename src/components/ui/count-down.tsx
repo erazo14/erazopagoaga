@@ -1,0 +1,103 @@
+import { useEffect, useState } from 'react';
+import { Ornament } from '../ornament';
+
+interface CountdownProps {
+  targetDate: string;
+}
+
+const Countdown = ({ targetDate }: CountdownProps) => {
+  const getTimeLeft = () => {
+    const difference = new Date(targetDate).getTime() - Date.now();
+
+    if (difference <= 0) {
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+    }
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft(getTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [targetDate]);
+
+  const units = [
+    {
+      value: timeLeft.days,
+      label: 'Days',
+    },
+    {
+      value: timeLeft.hours,
+      label: 'Hours',
+    },
+    {
+      value: timeLeft.minutes,
+      label: 'Minutes',
+    },
+    {
+      value: timeLeft.seconds,
+      label: 'Seconds',
+    },
+  ];
+
+  return (
+    <section className="relative overflow-hidden border-b border-border/60 bg-secondary/25 px-5 py-7 sm:px-8 sm:py-5">
+      <div className="absolute -left-24 top-10 h-72 w-72 rounded-full border border-accent/25 sm:h-96 sm:w-96" />
+      <div className="absolute -right-10 bottom-0 h-64 w-64 rounded-full border border-primary/15" />
+
+      <div className="relative mx-auto max-w-6xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow text-primary">
+            Counting down
+          </p>
+
+          <h2 className="display-font mt-5 text-5xl font-semibold leading-[.92] tracking-[-.035em] sm:text-6xl">
+            Until the <span className="italic text-primary">big day</span>
+          </h2>
+
+          <div className="section-rule mx-auto mt-8" />
+
+          <p className="mt-6 text-sm italic leading-7 text-muted-foreground">
+            We cannot wait to celebrate this special day together.
+          </p>
+        </div>
+        <Ornament className="my-7" />
+        <div className="mx-auto grid max-w-2xl grid-cols-4 gap-3 sm:grid-cols-4">
+          {units.map((unit) => (
+            <div
+              key={unit.label}
+              className="relative overflow-hidden rounded-[1.25rem] px-2 py-4 text-center shadow-[0_12px_40px_hsl(var(--foreground)/.06)]"
+            >
+              <div className="absolute -right-8 -top-8 h-20 w-6 rounded-full border border-primary/10" />
+
+              <div className="display-font text-4xl font-semibold leading-none tracking-[-.04em] text-primary sm:text-5xl">
+                {String(unit.value).padStart(2, '0')}
+              </div>
+
+              <div className="eyebrow mt-3 text-muted-foreground">
+                {unit.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Countdown;
