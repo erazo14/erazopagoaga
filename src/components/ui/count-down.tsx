@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Ornament } from '../ornament';
+import { useI18n } from '@/lib/i18n';
 
 interface CountdownProps {
   targetDate: string;
 }
 
 const Countdown = ({ targetDate }: CountdownProps) => {
+  const {t} = useI18n();
   const getTimeLeft = () => {
     const difference = new Date(targetDate).getTime() - Date.now();
 
@@ -53,7 +55,7 @@ const Countdown = ({ targetDate }: CountdownProps) => {
       value: timeLeft.seconds,
       label: 'Seconds',
     },
-  ];
+  ] as const;;
 
   return (
     <section className="relative overflow-hidden border-b border-border/60 bg-secondary/25 px-5 py-7 sm:px-8 sm:py-5">
@@ -63,17 +65,17 @@ const Countdown = ({ targetDate }: CountdownProps) => {
       <div className="relative mx-auto max-w-6xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow text-primary">
-            Counting down
+            {t('home.countingDown')}
           </p>
 
           <h2 className="display-font mt-5 text-5xl font-semibold leading-[.92] tracking-[-.035em] sm:text-6xl">
-            Until the <span className="italic text-primary">big day</span>
+            {t('home.untilThe')} <span className="italic text-primary">{t('home.bigDay')}</span>
           </h2>
 
           <div className="section-rule mx-auto mt-8" />
 
           <p className="mt-6 text-sm italic leading-7 text-muted-foreground">
-            We cannot wait to celebrate this special day together.
+            {t('home.countDownDescription')}
           </p>
         </div>
         <Ornament className="my-7" />
@@ -90,7 +92,7 @@ const Countdown = ({ targetDate }: CountdownProps) => {
               </div>
 
               <div className="eyebrow mt-3 text-muted-foreground">
-                {unit.label}
+                {t(unit.label)}
               </div>
             </div>
           ))}
