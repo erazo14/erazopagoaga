@@ -20,7 +20,7 @@ function formatDate(value: string) {
 export default function Home() {
   const { t, language } = useI18n();
   const api = new PingControllerApi();
-  const date = '2027-02-27';
+  const date = '2027-02-27T14:00:00-06:00';
   // const weddingQuery = useGetWedding();
   // const wedding = weddingQuery.data;
 
