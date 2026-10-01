@@ -217,7 +217,7 @@ const translations = {
     'home.countingDown': 'Cuenta regresiva',
     'home.untilThe': 'No podemos',
     'home.bigDay': 'esperar más',
-    'home.countDownDescription': 'Estamos deseando celebrar este día tan especial juntos.',
+    'home.countDownDescription': 'Nos encantará tenerlos a nuestro lado en este día tan especial.',
     'Days': 'Días',
     'Hours': 'Horas',
     'Minutes': 'Minutos',
