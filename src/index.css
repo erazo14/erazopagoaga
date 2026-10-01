@@ -393,7 +393,14 @@
 }
 
 .eyebrow {
-  font-size: .68rem;
+  font-size: .66rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.eyebrow-coudnt-down {
+  font-size: .58rem;
   letter-spacing: .2em;
   text-transform: uppercase;
   font-weight: 700;

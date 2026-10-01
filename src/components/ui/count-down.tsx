@@ -91,7 +91,7 @@ const Countdown = ({ targetDate }: CountdownProps) => {
                 {String(unit.value).padStart(2, '0')}
               </div>
 
-              <div className="eyebrow mt-3 text-muted-foreground">
+              <div className=".eyebrow-coudnt-down mt-3 text-muted-foreground">
                 {t(unit.label)}
               </div>
             </div>

@@ -222,7 +222,7 @@ const translations = {
     'Hours': 'Horas',
     'Minutes': 'Minutos',
     'Seconds': 'segundos',
-    'gallery.back': 'Inicio',
+    'gallery.back': 'Volver al Inicio',
     'gallery.eyebrow': 'Galería',
     'gallery.title': 'Momentos que',
     'gallery.titleAccent': 'atesoramos.',
