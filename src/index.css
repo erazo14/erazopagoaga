@@ -357,7 +357,7 @@
 }
 
 .animate-rise-in {
-  animation: rise-in 700ms cubic-bezier(.22, .8, .26, 1) both;
+  animation: rise-in 1000ms cubic-bezier(.22, .8, .26, 1) both;
 }
 
 .animate-drift {

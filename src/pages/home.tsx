@@ -69,7 +69,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[28rem] animate-rise-in [animation-delay:150ms]">
+          <div className="relative mx-auto w-full max-w-[28rem] animate-rise-in [animation-duration:1500ms] [animation-delay:150ms]">
             <div className="relative aspect-[.86] overflow-hidden rounded-t-[10rem] rounded-b-[1rem] border border-primary/20 bg-secondary/60 p-3 shadow-[0_24px_70px_hsl(var(--foreground)/.09)]">
               <div className="relative flex h-full flex-col items-center justify-center overflow-hidden rounded-t-[9.25rem] rounded-b-[.55rem] border border-primary/15 bg-[radial-gradient(circle_at_50%_15%,hsl(var(--accent)/.25),transparent_40%),hsl(var(--secondary))] px-8 text-center">
                 <div className="absolute left-4 top-12 h-28 w-16 rounded-full border border-primary/20 opacity-70" />

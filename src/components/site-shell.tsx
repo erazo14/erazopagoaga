@@ -1,4 +1,5 @@
 import { Heart, LocateFixed, Menu, X } from 'lucide-react';
+import { WeddingLoader } from '@/components/wedding-loader';
 import { type ReactNode, useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import { useI18n } from '@/lib/i18n';
@@ -10,9 +11,19 @@ type SiteShellProps = {
 export function SiteShell({ children }: SiteShellProps) {
   const { language, setLanguage, t } = useI18n();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [location] = useLocation();
 
   const closeMenu = () => setMenuOpen(false);
+
+
+  if (loading) {
+    return (
+      <WeddingLoader
+        onComplete={() => setLoading(false)}
+      />
+    );
+  }
 
   return (
     <div className="paper-grain min-h-[100dvh] overflow-x-hidden bg-background text-foreground">

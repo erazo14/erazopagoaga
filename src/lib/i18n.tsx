@@ -4,6 +4,7 @@ export type Language = 'en' | 'es';
 
 const translations = {
   en: {
+    'loading': 'Our story begins...',
     'language': 'English',
     'language.switchTo': 'Switch language',
     'nav.main': 'Main navigation',
@@ -166,6 +167,7 @@ const translations = {
     'gallery.signature': 'G + F',
   },
   es: {
+    'loading': 'Nuestra historia comienza...',
     'language': 'Español',
     'language.switchTo': 'Cambiar idioma',
     'nav.main': 'Navegación principal',
