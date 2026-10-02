@@ -334,10 +334,22 @@ const translations = {
 export type TranslationKey = keyof typeof translations.en;
 
 function getInitialLanguage(): Language {
-  if (typeof window === 'undefined') return 'en';
+  if (typeof window === 'undefined') return 'es';
+
   const stored = window.localStorage.getItem('wedding-language');
-  if (stored === 'en' || stored === 'es') return stored;
-  return 'en';
+
+  if (stored === 'en' || stored === 'es') {
+    return stored;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get('lang');
+
+  if (lang === 'en' || lang === 'es') {
+    return lang;
+  }
+
+  return 'es';
 }
 
 function interpolate(value: string, variables?: Record<string, string | number>) {
