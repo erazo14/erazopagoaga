@@ -74,7 +74,7 @@ export default function Home() {
               <div className="relative flex h-full flex-col items-center justify-center overflow-hidden rounded-t-[9.25rem] rounded-b-[.55rem] border border-primary/15 bg-[radial-gradient(circle_at_50%_15%,hsl(var(--accent)/.25),transparent_40%),hsl(var(--secondary))] px-8 text-center">
                 <div className="absolute left-4 top-12 h-28 w-16 rounded-full border border-primary/20 opacity-70" />
                 <div className="absolute right-3 bottom-16 h-40 w-24 rounded-full border border-primary/20 opacity-70" />
-                <span className="eyebrow text-primary">{t('home.saveDate')}</span>
+                <span className="eyebrow-2 text-primary">{t('home.saveDate')}</span>
                 <span className="script-font mt-6 text-2xl text-primary/80">{t('home.forDay')}</span>
                 <span className="display-font mt-1 text-4xl font-semibold leading-none sm:text-5xl">{t('home.good')}<br />{t('home.people')}</span>
                 <span className="script-font mt-6 text-3xl text-primary/80">{t('home.extarArch')}</span>
