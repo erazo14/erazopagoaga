@@ -191,7 +191,7 @@ const translations = {
     'home.forDay': 'para un día lleno de',
     'home.good': 'alegría &',
     'home.people': 'momentos',
-    'home.extarArch': 'inolvidalbles',
+    'home.extarArch': 'inolvidables',
     'home.together': 'G + F',
     'home.together1': '',
     'home.rsvp': 'RSVP',
