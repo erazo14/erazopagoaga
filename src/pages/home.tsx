@@ -5,9 +5,9 @@ import { Link } from 'wouter';
 import { Ornament } from '@/components/ornament';
 // import { QueryError, WeddingLoading } from '@/components/data-states';
 import { GalleryCarousel } from '@/components/gallery-carousel';
-import { useEffect, useState } from 'react';
-import { PingControllerApi } from '@/api';
+import { useEffect } from 'react';
 import Countdown from '@/components/ui/count-down';
+import { PingControllerApi } from '@/api/apis/PingControllerApi';
 
 function formatDate(value: string) {
   const { language } = useI18n();
@@ -17,28 +17,23 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat(language === 'en' ? 'en-US': 'es-HN', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }).format(parsed);
 }
 
+const api = new PingControllerApi();
+
 export default function Home() {
   const { t, language } = useI18n();
-  const api = new PingControllerApi();
   const date = '2027-02-27T14:00:00-06:00';
+
+  useEffect(() => {
+    void api.pingControllerPing()
+      .then((data) => console.log(data))
+      .catch((error) => console.error('API request failed:', error));
+  }, []);
+
   // const weddingQuery = useGetWedding();
   // const wedding = weddingQuery.data;
 
   // if (weddingQuery.isLoading) return <WeddingLoading />;
   // if (weddingQuery.isError || !wedding) return <QueryError onRetry={() => void weddingQuery.refetch()} label="We could not open the invitation." />;
-
-  useEffect( ()=>{
-    ping();
-  },[])
-
-  const  ping = async () => {
-    try {
-      const data = await api.pingControllerPing();
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
   return (
     <div>
       <section className="relative overflow-hidden border-b border-border/60">
