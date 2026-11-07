@@ -2,6 +2,21 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Wedding RSVP API
+
+The public RSVP page reads `VITE_API_BASE_URL` and calls the Fastify API:
+
+- `GET /api/invites/:guestId` to load a personal invitation.
+- `POST /api/rsvps/:guestId` to submit or update the invited group's response.
+
+For local testing, create an ignored `.env.local` file with:
+
+```env
+VITE_API_BASE_URL=http://localhost:3000
+```
+
+The frontend never needs `ADMIN_API_KEY`; do not add it to a `VITE_` variable or bundle it into browser code. The invitation link format is `/rsvp?guestId=<token>`. An administrator can obtain the token from the backend, then use it in the frontend URL.
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)

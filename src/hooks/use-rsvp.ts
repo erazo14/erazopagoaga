@@ -1,26 +1,44 @@
-// import {
-//   getGetRsvpSummaryQueryKey,
-//   getListRsvpsQueryKey,
-//   useCreateRsvp,
-// } from '@workspace/api-client-react';
-import { useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import {
+  getInvitation,
+  submitInvitationRsvp,
+  type Invitation,
+  type SubmitRsvpInput,
+} from '@/lib/rsvp-api';
 
-export function useSubmitRsvp() {
+const invitationQueryKey = (guestId: string) =>
+  ['public-invitation', guestId] as const;
+
+export function useInvitation(guestId?: string) {
+  return useQuery({
+    queryKey: invitationQueryKey(guestId ?? ''),
+    queryFn: ({ signal }) => getInvitation(guestId!, signal),
+    enabled: Boolean(guestId),
+    retry: false,
+    staleTime: 15_000,
+  });
+}
+
+export function useSubmitRsvp(guestId: string) {
   const queryClient = useQueryClient();
-  // const mutation = useCreateRsvp();
 
-  // const submit = (data: Parameters<typeof mutation.mutate>[0]['data'], onSuccess?: () => void) => {
-  //   mutation.mutate(
-  //     { data },
-  //     {
-  //       onSuccess: () => {
-  //         // void queryClient.invalidateQueries({ queryKey: getListRsvpsQueryKey() });
-  //         // void queryClient.invalidateQueries({ queryKey: getGetRsvpSummaryQueryKey() });
-  //         onSuccess?.();
-  //       },
-  //     },
-  //   );
-  // };
-
-  // return { ...mutation, submit };
+  return useMutation({
+    mutationFn: (input: SubmitRsvpInput) =>
+      submitInvitationRsvp(guestId, input),
+    onSuccess: (response, input) => {
+      queryClient.setQueryData<Invitation>(
+        invitationQueryKey(guestId),
+        (current) =>
+          current
+            ? {
+                ...current,
+                rsvp: {
+                  ...response,
+                  note: input.note,
+                },
+              }
+            : current,
+      );
+    },
+  });
 }

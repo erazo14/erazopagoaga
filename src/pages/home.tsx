@@ -1,13 +1,11 @@
-import { ArrowRight, CalendarDays, Images, Clock3, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, CalendarDays, Images } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { Link } from 'wouter';
 // import { useGetWedding } from '@workspace/api-client-react';
 import { Ornament } from '@/components/ornament';
 // import { QueryError, WeddingLoading } from '@/components/data-states';
 import { GalleryCarousel } from '@/components/gallery-carousel';
-import { useEffect } from 'react';
 import Countdown from '@/components/ui/count-down';
-import { PingControllerApi } from '@/api/apis/PingControllerApi';
 
 function formatDate(value: string) {
   const { language } = useI18n();
@@ -17,17 +15,11 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat(language === 'en' ? 'en-US': 'es-HN', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }).format(parsed);
 }
 
-const api = new PingControllerApi();
-
 export default function Home() {
   const { t, language } = useI18n();
   const date = '2027-02-27T14:00:00-06:00';
-
-  useEffect(() => {
-    void api.pingControllerPing()
-      .then((data) => console.log(data))
-      .catch((error) => console.error('API request failed:', error));
-  }, []);
+  const searchParams = new URLSearchParams(window.location.search);
+  const guestId = searchParams.get('guestId') ?? searchParams.get('invite');
 
   // const weddingQuery = useGetWedding();
   // const wedding = weddingQuery.data;
@@ -51,13 +43,16 @@ export default function Home() {
               {wedding.message}
             </p> */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              {/* <Link
-                href="/rsvp?guestId=demo-invite"
-                className="group inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_8px_22px_hsl(var(--primary)/.18)] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_28px_hsl(var(--primary)/.25)]"
-                data-testid="link-home-rsvp"
-              >
-                Tell us you&apos;re coming <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link> */}
+              {guestId && (
+                <Link
+                  href={`/rsvp?guestId=${encodeURIComponent(guestId)}`}
+                  className="group inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_8px_22px_hsl(var(--primary)/.18)] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_28px_hsl(var(--primary)/.25)]"
+                  data-testid="link-home-rsvp"
+                >
+                  {t('home.tellComing')}
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </Link>
+              )}
               {/* <a href="#details" className="text-sm font-semibold text-foreground underline decoration-accent underline-offset-8 transition-colors hover:text-primary" data-testid="link-home-details">
                 See the details
               </a> */}
