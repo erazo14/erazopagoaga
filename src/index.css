@@ -368,6 +368,22 @@
   animation: draw-line 850ms cubic-bezier(.22, .8, .26, 1) both;
 }
 
+[data-reveal] {
+  transform: translateY(1.25rem);
+  transition: transform 850ms cubic-bezier(.22, .8, .26, 1);
+}
+
+[data-reveal].is-visible {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    transform: none;
+    transition: none;
+  }
+}
+
 .paper-grain {
   position: relative;
   isolation: isolate;
