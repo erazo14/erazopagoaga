@@ -162,23 +162,19 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
   return (
     <div className="mx-auto max-w-6xl">
       <section
-        className="grid gap-10 border-b border-border/60 lg:grid-cols-[1.1fr_.9fr] lg:items-center"
+        className="border-b border-border/60 py-10 text-center sm:py-16"
         data-reveal
       >
-        <div>
-          
+        <div className="mx-auto max-w-4xl">
           <h2 className="display-font mt-5 text-3xl font-medium text-primary sm:text-3xl">
             {t('event.invitationTitle')}
           </h2>
           <h1 className="display-font mt-5 text-5xl font-semibold leading-[.92] tracking-[-.04em] sm:text-7xl">
             {t('event.title')}
           </h1>
-          <Ornament className="my-7" />
-          {/* <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">
-            {t('event.welcome', { name: guestName })}
-          </p> */}
+          <Ornament className="mx-auto my-7" />
           <div
-            className="display-font mt-2 flex items-center gap-2 text-xl font-medium capitalize sm:gap-3 sm:text-2xl"
+            className="display-font mx-auto mt-2 flex w-fit items-center justify-center gap-2 text-xl font-medium capitalize sm:gap-3 sm:text-2xl"
             aria-label={dateLabel}
             data-testid="text-invitation-date"
           >
@@ -188,24 +184,29 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
             <span className="text-primary/55" aria-hidden="true">|</span>
             <span>{displayDate.year}</span>
           </div>
-          <img
+          <div
+            className="rsvp-fade mx-auto mt-8 max-w-2xl overflow-hidden rounded-3xl shadow-[0_18px_48px_hsl(var(--foreground)/.12)]"
+            data-reveal
+          >
+            <img
               src={`${import.meta.env.BASE_URL}1.jpeg`}
               alt={t('event.couplePhotoAlt')}
-              className="mt-7 aspect-[4/3] w-full rounded-xl object-cover object-center shadow-md"
+              className="rsvp-photo-pulse aspect-[4/3] w-full object-cover object-center"
               loading="lazy"
-              data-reveal
               data-testid="image-invitation-couple"
             />
+          </div>
         </div>
-        
       </section>
 
       <Countdown targetDate={weddingDetails.startsAt} compact />
 
-      <section
-        className="grid gap-12 border-b border-border/60 py-16 sm:py-20 lg:grid-cols-[.72fr_1.28fr] lg:gap-24"
-        data-reveal
-      >
+      <section className="border-b border-border/60 py-16 sm:py-20">
+        <div
+          className="rsvp-fade mx-auto max-w-6xl rounded-[2rem] border border-primary/15 bg-card/70 p-6 shadow-[0_20px_60px_hsl(var(--foreground)/.07)] sm:p-10 lg:p-12"
+          data-reveal
+        >
+        <div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-24">
         <div>
           <p className="eyebrow text-primary">{t('event.detailsEyebrow')}</p>
           <h2 className="display-font mt-5 text-4xl font-semibold leading-[.94] sm:text-5xl">
@@ -283,6 +284,8 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
               </a>
             </div>
           </div>
+        </div>
+        </div>
         </div>
       </section>
 
