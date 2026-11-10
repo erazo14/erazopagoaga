@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 import Countdown from '@/components/ui/count-down';
 import { useI18n } from '@/lib/i18n';
 import { weddingDetails } from '@/lib/wedding-details';
+import { Ornament } from './ornament';
 
 function datePartsInWeddingTimeZone(date: Date) {
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -161,57 +162,42 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
   return (
     <div className="mx-auto max-w-6xl">
       <section
-        className="grid gap-10 border-b border-border/60 py-10 sm:py-16 lg:grid-cols-[1.1fr_.9fr] lg:items-center"
+        className="grid gap-10 border-b border-border/60 lg:grid-cols-[1.1fr_.9fr] lg:items-center"
         data-reveal
       >
         <div>
-          <p className="eyebrow text-primary">{t('event.eyebrow')}</p>
-          <h1 className="display-font mt-5 text-5xl font-semibold leading-[.92] tracking-[-.04em] sm:text-7xl">
+          
+          <h2 className="display-font mt-5 text-3xl font-medium text-primary sm:text-3xl">
             {t('event.invitationTitle')}
-          </h1>
-          <p className="display-font mt-5 text-2xl font-medium text-primary sm:text-3xl">
+          </h2>
+          <h1 className="display-font mt-5 text-5xl font-semibold leading-[.92] tracking-[-.04em] sm:text-7xl">
             {t('event.title')}
-          </p>
-          <div className="section-rule mt-8" />
-          <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">
+          </h1>
+          <Ornament className="my-7" />
+          {/* <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">
             {t('event.welcome', { name: guestName })}
-          </p>
-        </div>
-        <div className="relative overflow-hidden rounded-[1.5rem] border border-primary/15 bg-secondary/45 p-6 sm:p-9">
-          <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full border border-primary/15" />
-          <div className="relative">
-            <p className="eyebrow text-primary">{t('event.detailsEyebrow')}</p>
-            <p className="display-font mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
-              {t('event.detailsTitle')}
-            </p>
-            <div className="mt-7">
-              <p className="eyebrow text-muted-foreground">{t('event.dateLabel')}</p>
-              <div
-                className="display-font mt-2 flex items-center gap-2 text-xl font-medium capitalize sm:gap-3 sm:text-2xl"
-                aria-label={dateLabel}
-                data-testid="text-invitation-date"
-              >
-                <span>{displayDate.day}</span>
-                <span className="text-primary/55" aria-hidden="true">|</span>
-                <span>{displayDate.month}</span>
-                <span className="text-primary/55" aria-hidden="true">|</span>
-                <span>{displayDate.year}</span>
-              </div>
-              <p className="eyebrow mt-5 text-muted-foreground">{t('event.timeLabel')}</p>
-              <p className="display-font mt-1 text-xl font-medium" data-testid="text-invitation-time">
-                {time}
-              </p>
-            </div>
-            <img
-              src={`${import.meta.env.BASE_URL}3.jpeg`}
+          </p> */}
+          <div
+            className="display-font mt-2 flex items-center gap-2 text-xl font-medium capitalize sm:gap-3 sm:text-2xl"
+            aria-label={dateLabel}
+            data-testid="text-invitation-date"
+          >
+            <span>{displayDate.day}</span>
+            <span className="text-primary/55" aria-hidden="true">|</span>
+            <span>{displayDate.month}</span>
+            <span className="text-primary/55" aria-hidden="true">|</span>
+            <span>{displayDate.year}</span>
+          </div>
+          <img
+              src={`${import.meta.env.BASE_URL}1.jpeg`}
               alt={t('event.couplePhotoAlt')}
               className="mt-7 aspect-[4/3] w-full rounded-xl object-cover object-center shadow-md"
               loading="lazy"
               data-reveal
               data-testid="image-invitation-couple"
             />
-          </div>
         </div>
+        
       </section>
 
       <Countdown targetDate={weddingDetails.startsAt} compact />
