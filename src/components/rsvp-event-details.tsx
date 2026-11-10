@@ -39,6 +39,24 @@ function formatDate(date: Date, language: 'en' | 'es') {
   }).format(date);
 }
 
+function formatDateParts(date: Date, language: 'en' | 'es') {
+  const locale = language === 'en' ? 'en-US' : 'es-HN';
+  return {
+    day: new Intl.DateTimeFormat(locale, {
+      timeZone: weddingDetails.timeZone,
+      day: 'numeric',
+    }).format(date),
+    month: new Intl.DateTimeFormat(locale, {
+      timeZone: weddingDetails.timeZone,
+      month: 'long',
+    }).format(date),
+    year: new Intl.DateTimeFormat(locale, {
+      timeZone: weddingDetails.timeZone,
+      year: 'numeric',
+    }).format(date),
+  };
+}
+
 function formatTime(date: Date, language: 'en' | 'es') {
   return new Intl.DateTimeFormat(language === 'en' ? 'en-US' : 'es-HN', {
     timeZone: weddingDetails.timeZone,
@@ -67,6 +85,7 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
   const endDay = `${endYear}${endMonth}${endDate}`;
   const time = formatTime(start, language);
   const dateLabel = formatDate(start, language);
+  const displayDate = formatDateParts(start, language);
   const location = `${weddingDetails.venue}, ${weddingDetails.address}, ${weddingDetails.country}`;
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
   const wazeUrl = `https://waze.com/ul?q=${encodeURIComponent(location)}&navigate=yes`;
@@ -148,8 +167,11 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
         <div>
           <p className="eyebrow text-primary">{t('event.eyebrow')}</p>
           <h1 className="display-font mt-5 text-5xl font-semibold leading-[.92] tracking-[-.04em] sm:text-7xl">
-            {t('event.title')}
+            {t('event.invitationTitle')}
           </h1>
+          <p className="display-font mt-5 text-2xl font-medium text-primary sm:text-3xl">
+            {t('event.title')}
+          </p>
           <div className="section-rule mt-8" />
           <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">
             {t('event.welcome', { name: guestName })}
@@ -162,20 +184,37 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
             <p className="display-font mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
               {t('event.detailsTitle')}
             </p>
-            <div className="mt-7 flex items-start gap-3">
-              <CalendarDays className="mt-1 shrink-0 text-primary" size={19} />
-              <div>
-                <p className="eyebrow text-muted-foreground">{t('event.dateLabel')}</p>
-                <p className="display-font mt-1 text-xl font-medium capitalize">
-                  {dateLabel}
-                </p>
+            <div className="mt-7">
+              <p className="eyebrow text-muted-foreground">{t('event.dateLabel')}</p>
+              <div
+                className="display-font mt-2 flex items-center gap-2 text-xl font-medium capitalize sm:gap-3 sm:text-2xl"
+                aria-label={dateLabel}
+                data-testid="text-invitation-date"
+              >
+                <span>{displayDate.day}</span>
+                <span className="text-primary/55" aria-hidden="true">|</span>
+                <span>{displayDate.month}</span>
+                <span className="text-primary/55" aria-hidden="true">|</span>
+                <span>{displayDate.year}</span>
               </div>
+              <p className="eyebrow mt-5 text-muted-foreground">{t('event.timeLabel')}</p>
+              <p className="display-font mt-1 text-xl font-medium" data-testid="text-invitation-time">
+                {time}
+              </p>
             </div>
+            <img
+              src={`${import.meta.env.BASE_URL}3.jpeg`}
+              alt={t('event.couplePhotoAlt')}
+              className="mt-7 aspect-[4/3] w-full rounded-xl object-cover object-center shadow-md"
+              loading="lazy"
+              data-reveal
+              data-testid="image-invitation-couple"
+            />
           </div>
         </div>
       </section>
 
-      <Countdown targetDate={weddingDetails.startsAt} />
+      <Countdown targetDate={weddingDetails.startsAt} compact />
 
       <section
         className="grid gap-12 border-b border-border/60 py-16 sm:py-20 lg:grid-cols-[.72fr_1.28fr] lg:gap-24"
