@@ -5,6 +5,7 @@ import {useForm} from 'react-hook-form';
 import {Link} from 'wouter';
 import {z} from 'zod';
 import {Ornament} from '@/components/ornament';
+import {RsvpEventDetails} from '@/components/rsvp-event-details';
 import {PendingMark, WeddingLoading} from '@/components/data-states';
 import {
   Form,
@@ -29,7 +30,11 @@ type FormValues = {
 export default function RsvpPage() {
   const {t} = useI18n();
   const searchParams = new URLSearchParams(window.location.search);
-  const guestId = searchParams.get('guestId') ?? searchParams.get('invite') ?? '';
+  const guestId =
+    searchParams.get('guestId') ??
+    searchParams.get('invite') ??
+    searchParams.get('Uid') ??
+    '';
   const invitationQuery = useInvitation(guestId || undefined);
 
   if (invitationQuery.isLoading) {
@@ -150,7 +155,10 @@ function RsvpForm({
 
   if (submitted) {
     return (
-      <div className="mx-auto flex min-h-[calc(100dvh-9.5rem)] max-w-2xl items-center justify-center px-5 py-16 sm:px-8">
+      <div
+        id="confirmation"
+        className="mx-auto flex min-h-[calc(100dvh-9.5rem)] max-w-2xl scroll-mt-24 items-center justify-center px-5 py-16 sm:px-8"
+      >
         <div className="animate-rise-in w-full rounded-[2rem] border border-primary/20 bg-card px-6 py-14 text-center shadow-[0_20px_60px_hsl(var(--foreground)/.07)] sm:px-16">
           <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-accent text-accent-foreground">
             <Check size={28} strokeWidth={1.8} />
@@ -182,8 +190,14 @@ function RsvpForm({
   const noteLength = form.watch('note').length;
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-20">
-      <div className="grid gap-14 lg:grid-cols-[.72fr_1.28fr] lg:gap-24">
+    <div className="px-5 py-12 sm:px-8 sm:py-20">
+      <RsvpEventDetails guestName={invitation.principal.name} />
+      <section
+        id="confirmation"
+        className="mx-auto mt-8 max-w-6xl scroll-mt-24 py-12 sm:py-16"
+        data-reveal
+      >
+        <div className="grid gap-14 lg:grid-cols-[.72fr_1.28fr] lg:gap-24">
         <div className="lg:sticky lg:top-12 lg:self-start">
           <Link
             href={`/?guestId=${encodeURIComponent(guestId)}`}
@@ -391,7 +405,8 @@ function RsvpForm({
             </div>
           </form>
         </Form>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
