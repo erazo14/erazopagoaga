@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { PageNotFound } from '@/components/data-states';
 import { SiteShell } from '@/components/site-shell';
+import { FloatingInvitationControls } from '@/components/floating-invitation-controls';
 import Home from '@/pages/home';
 import GalleryPage from '@/pages/gallery';
 import ResponsesPage from '@/pages/responses';
@@ -19,18 +20,27 @@ import {
 const queryClient = new QueryClient();
 
 function Router() {
+  const [location] = useLocation();
+  const searchParams = new URLSearchParams(window.location.search);
+  const hasGuestInvitation = Boolean(
+    searchParams.get('guestId') ?? searchParams.get('invite') ?? searchParams.get('Uid'),
+  );
+
   return (
-    <RoutedErrorBoundary>
-      <SiteShell>
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/gallery" component={GalleryPage} />
-          <Route path="/rsvp" component={RsvpPage} />
-          <Route path="/responses" component={ResponsesPage} />
-          <Route component={PageNotFound} />
-        </Switch>
-      </SiteShell>
-    </RoutedErrorBoundary>
+    <>
+      <RoutedErrorBoundary>
+        <SiteShell>
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/gallery" component={GalleryPage} />
+            <Route path="/rsvp" component={RsvpPage} />
+            <Route path="/responses" component={ResponsesPage} />
+            <Route component={PageNotFound} />
+          </Switch>
+        </SiteShell>
+      </RoutedErrorBoundary>
+      {location === '/rsvp' && hasGuestInvitation && <FloatingInvitationControls />}
+    </>
   );
 }
 
