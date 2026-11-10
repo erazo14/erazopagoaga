@@ -203,10 +203,9 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
 
       <section className="border-b border-border/60 py-16 sm:py-20">
         <div
-          className="rsvp-fade mx-auto max-w-6xl rounded-[2rem] border border-primary/15 bg-card/70 p-6 shadow-[0_20px_60px_hsl(var(--foreground)/.07)] sm:p-10 lg:p-12"
+          className="rsvp-fade mx-auto grid max-w-6xl gap-12 rounded-[2rem] border border-primary/15 bg-card/70 p-6 shadow-[0_20px_60px_hsl(var(--foreground)/.07)] sm:p-10 lg:grid-cols-[.72fr_1.28fr] lg:gap-24 lg:p-12"
           data-reveal
         >
-        <div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-24">
         <div>
           <p className="eyebrow text-primary">{t('event.detailsEyebrow')}</p>
           <h2 className="display-font mt-5 text-4xl font-semibold leading-[.94] sm:text-5xl">
@@ -284,7 +283,6 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
               </a>
             </div>
           </div>
-        </div>
         </div>
         </div>
       </section>
