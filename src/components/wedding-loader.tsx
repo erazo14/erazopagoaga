@@ -133,12 +133,14 @@ export function WeddingLoader({
                         className="invitation-wax-seal invitation-seal-pulse pointer-events-none absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center md:h-20 md:w-20"
                         aria-hidden="true"
                     >
-                        <img
-                            src={`${import.meta.env.BASE_URL}favicon.png`}
-                            alt=""
-                            className="h-10 w-10 object-contain md:h-12 md:w-12"
-                            draggable={false}
-                        />
+                        <span className="invitation-wax-imprint grid h-[82%] w-[82%] place-items-center rounded-full">
+                            <img
+                                src={`${import.meta.env.BASE_URL}favicon.png`}
+                                alt=""
+                                className="h-10 w-10 object-contain md:h-12 md:w-12"
+                                draggable={false}
+                            />
+                        </span>
                     </span>
                 </div>
                 <span className="mt-7 text-sm tracking-wide">
