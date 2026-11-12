@@ -403,10 +403,23 @@
   transform: rotate(-8deg);
 }
 
-.invitation-wax-seal img {
+.invitation-wax-imprint {
+  border: 1px solid rgb(184 163 117 / .42);
+  background: radial-gradient(circle at 35% 28%, #f8f3e6, #eadfca);
+  box-shadow:
+    inset 0 2px 4px rgb(108 82 35 / .24),
+    inset 0 -2px 3px rgb(255 255 255 / .85),
+    0 1px 0 rgb(255 255 255 / .62);
+}
+
+.invitation-wax-imprint img {
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0 1px 0 rgb(255 255 255 / .55));
+  opacity: .58;
+  filter:
+    drop-shadow(-1px -1px 0 rgb(255 255 255 / .85))
+    drop-shadow(1px 1px 0 rgb(112 87 42 / .52));
+  mix-blend-mode: multiply;
 }
 
 .invitation-seal-pulse {
