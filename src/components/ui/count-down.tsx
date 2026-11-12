@@ -62,7 +62,10 @@ const Countdown = ({ targetDate, compact = false }: CountdownProps) => {
     compact ? (
       <section className="border-b border-border/60 px-5 py-10 sm:px-8 sm:py-12" data-reveal>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="display-font text-3xl font-medium sm:text-4xl">
+          <p
+            className="countdown-prefix display-font text-3xl font-medium sm:text-4xl"
+            data-reveal
+          >
             {t('event.countdownPrefix')}
           </p>
           <Ornament
