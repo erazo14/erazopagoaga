@@ -120,14 +120,27 @@ export function WeddingLoader({
                 className="group flex w-full flex-col items-center rounded-xl bg-transparent p-3 text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 disabled:cursor-default"
                 data-testid="button-open-invitation"
             >
-                <img
-                    src={`${import.meta.env.BASE_URL}loader/invitation-envelope.png`}
-                    alt=""
-                    width={1000}
-                    height={709}
-                    className="w-full object-contain drop-shadow-lg transition-transform duration-500 motion-safe:group-hover:-translate-y-1 motion-reduce:transition-none"
-                    draggable={false}
-                />
+                <div className="relative w-full">
+                    <img
+                        src={`${import.meta.env.BASE_URL}loader/invitation-envelope.png`}
+                        alt=""
+                        width={1000}
+                        height={709}
+                        className="w-full object-contain drop-shadow-lg transition-transform duration-500 motion-safe:group-hover:-translate-y-1 motion-reduce:transition-none"
+                        draggable={false}
+                    />
+                    <span
+                        className="invitation-seal-pulse pointer-events-none absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-primary/15 bg-[#f5f0e3]/95 shadow-xl md:h-20 md:w-20"
+                        aria-hidden="true"
+                    >
+                        <img
+                            src={`${import.meta.env.BASE_URL}favicon.png`}
+                            alt=""
+                            className="h-10 w-10 object-contain md:h-12 md:w-12"
+                            draggable={false}
+                        />
+                    </span>
+                </div>
                 <span className="mt-7 text-sm tracking-wide">
                     {t('loading.tapEnvelope')}
                 </span>
