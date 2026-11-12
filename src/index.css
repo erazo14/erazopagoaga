@@ -377,32 +377,6 @@
   background: radial-gradient(circle at 32% 24%, #fffdf5 0%, #f4ecd8 55%, #e6d8b9 100%);
 }
 
-.invitation-wax-seal::before,
-.invitation-wax-seal::after {
-  position: absolute;
-  z-index: 0;
-  content: '';
-  background: linear-gradient(145deg, #f8f2e2, #e6d8b9);
-}
-
-.invitation-wax-seal::before {
-  bottom: -5px;
-  left: 15%;
-  width: 13px;
-  height: 17px;
-  border-radius: 35% 28% 65% 55%;
-  transform: rotate(7deg);
-}
-
-.invitation-wax-seal::after {
-  right: 14%;
-  bottom: -4px;
-  width: 10px;
-  height: 13px;
-  border-radius: 28% 35% 58% 62%;
-  transform: rotate(-8deg);
-}
-
 .invitation-wax-imprint {
   border: 1px solid rgb(184 163 117 / .42);
   background: radial-gradient(circle at 35% 28%, #f8f3e6, #eadfca);
