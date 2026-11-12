@@ -96,6 +96,7 @@ export function WeddingLoader({
             {t('loading')}
         </p>
         {waitForOpen && isReady && (
+            <div className="motion-safe:animate-[rise-in_900ms_ease-out_both]">
             <button
                 type="button"
                 onClick={handleOpenInvitation}
@@ -105,6 +106,7 @@ export function WeddingLoader({
                 {t('loading.openInvitation')}
                 <ArrowRight size={17} />
             </button>
+            </div>
         )}
         </div>
     );
