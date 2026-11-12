@@ -13,6 +13,11 @@ export function SiteShell({ children }: SiteShellProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [location] = useLocation();
+  const searchParams = new URLSearchParams(window.location.search);
+  const hasGuestInvitation = Boolean(
+    searchParams.get('guestId') ?? searchParams.get('invite') ?? searchParams.get('Uid'),
+  );
+  const waitForInvitationOpen = location === '/rsvp' && hasGuestInvitation;
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -21,6 +26,10 @@ export function SiteShell({ children }: SiteShellProps) {
     return (
       <WeddingLoader
         onComplete={() => setLoading(false)}
+        waitForOpen={waitForInvitationOpen}
+        onOpenInvitation={() => {
+          window.dispatchEvent(new Event('wedding:open-invitation'));
+        }}
       />
     );
   }
