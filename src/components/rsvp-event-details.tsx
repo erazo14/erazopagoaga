@@ -110,7 +110,9 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.target.hasAttribute('data-reveal-repeat')) {
+            entry.target.classList.toggle('is-visible', entry.isIntersecting);
+          } else if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
           }
@@ -187,6 +189,7 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
           <div
             className="rsvp-fade mx-auto mt-8 max-w-2xl overflow-hidden rounded-3xl shadow-[0_18px_48px_hsl(var(--foreground)/.12)]"
             data-reveal
+            data-reveal-repeat
           >
             <img
               src={`${import.meta.env.BASE_URL}1.jpeg`}
