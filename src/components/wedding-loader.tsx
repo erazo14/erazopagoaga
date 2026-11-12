@@ -93,9 +93,9 @@ export function WeddingLoader({
 
             <div className="absolute -left-10 bottom-24 h-48 w-48 rounded-full border border-primary/15 sm:h-67 sm:w-67" />
 
-        <div className="relative grid w-full max-w-lg place-items-center px-6">
+        <div className={waitForOpen ? 'relative grid w-full max-w-lg place-items-center px-6' : 'contents'}>
         <div
-            className={`col-start-1 row-start-1 flex flex-col items-center transition-opacity duration-700 motion-reduce:transition-none ${waitForOpen && isReady ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
+            className={waitForOpen ? `col-start-1 row-start-1 flex flex-col items-center transition-opacity duration-700 motion-reduce:transition-none ${isReady ? 'pointer-events-none opacity-0' : 'opacity-100'}` : 'contents'}
             aria-hidden={waitForOpen && isReady}
         >
         <div className="relative h-[200px] w-[200px] sm:h-[270px] sm:w-[270px]">
