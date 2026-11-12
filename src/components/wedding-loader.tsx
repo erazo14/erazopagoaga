@@ -120,13 +120,13 @@ export function WeddingLoader({
                 className="group flex w-full flex-col items-center rounded-xl bg-transparent p-3 text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 disabled:cursor-default"
                 data-testid="button-open-invitation"
             >
-                <div className="relative w-full">
+                <div className="relative w-full aspect-[1000/709]">
                     <img
                         src={`${import.meta.env.BASE_URL}loader/invitation-envelope.png`}
                         alt=""
                         width={1000}
                         height={709}
-                        className="w-full object-contain drop-shadow-lg transition-transform duration-500 motion-safe:group-hover:-translate-y-1 motion-reduce:transition-none"
+                        className="absolute inset-0 h-full w-full object-contain drop-shadow-lg transition-transform duration-500 motion-safe:group-hover:-translate-y-1 motion-reduce:transition-none"
                         draggable={false}
                     />
                     <span
