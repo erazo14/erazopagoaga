@@ -377,6 +377,19 @@
   transform: translateY(0);
 }
 
+.countdown-prefix[data-reveal] {
+  opacity: 0;
+  transform: translateY(.75rem);
+  transition:
+    opacity 900ms ease-in-out,
+    transform 900ms ease-in-out;
+}
+
+.countdown-prefix[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .rsvp-fade {
   opacity: 0;
   transform: translateY(2rem);
@@ -411,6 +424,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] {
+    transform: none;
+    transition: none;
+  }
+
+  .countdown-prefix[data-reveal] {
+    opacity: 1;
     transform: none;
     transition: none;
   }
