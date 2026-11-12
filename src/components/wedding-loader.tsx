@@ -130,7 +130,7 @@ export function WeddingLoader({
                         draggable={false}
                     />
                     <span
-                        className="invitation-seal-pulse pointer-events-none absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-primary/15 bg-[#f5f0e3]/95 shadow-xl md:h-20 md:w-20"
+                        className="invitation-wax-seal invitation-seal-pulse pointer-events-none absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center md:h-20 md:w-20"
                         aria-hidden="true"
                     >
                         <img
