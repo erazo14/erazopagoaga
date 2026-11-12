@@ -5,6 +5,7 @@ export type Language = 'en' | 'es';
 const translations = {
   en: {
     'loading': 'Our story begins...',
+    'loading.openInvitation': 'Open invitation',
     'controls.groupLabel': 'Invitation quick controls',
     'controls.playMusic': 'Play the wedding song',
     'controls.pauseMusic': 'Pause the wedding song',
@@ -204,6 +205,7 @@ const translations = {
   },
   es: {
     'loading': 'Nuestra historia comienza...',
+    'loading.openInvitation': 'Abrir invitación',
     'controls.groupLabel': 'Controles rápidos de la invitación',
     'controls.playMusic': 'Reproducir la canción de la boda',
     'controls.pauseMusic': 'Pausar la canción de la boda',
