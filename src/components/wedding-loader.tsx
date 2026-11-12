@@ -1,8 +1,11 @@
 import { useI18n } from '@/lib/i18n';
-import { useEffect, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface WeddingLoaderProps {
   onComplete: () => void;
+  waitForOpen?: boolean;
+  onOpenInvitation?: () => void;
 }
 
 const frames = [
@@ -15,17 +18,21 @@ const frames = [
     '/loader/frame-7.png',
 ];
 
-export function WeddingLoader({ onComplete }: WeddingLoaderProps) {
+export function WeddingLoader({
+  onComplete,
+  waitForOpen = false,
+  onOpenInvitation,
+}: WeddingLoaderProps) {
     const {t} = useI18n();
     const [frame, setFrame] = useState(0);
     const [fadeOut, setFadeOut] = useState(false);
+    const [isReady, setIsReady] = useState(false);
+    const finishTimerRef = useRef<number | undefined>(undefined);
 
-    useEffect(() => {
-        frames.forEach((src) => {
-            const image = new Image();
-            image.src = src;
-        });
-    }, []);
+    const hideLoader = useCallback(() => {
+        setFadeOut(true);
+        finishTimerRef.current = window.setTimeout(onComplete, 600);
+    }, [onComplete]);
 
     useEffect(() => {
         frames.forEach((src) => {
@@ -37,19 +44,27 @@ export function WeddingLoader({ onComplete }: WeddingLoaderProps) {
         setFrame((current) => (current + 1) % frames.length);
         }, 350);
 
-        const hideTimer = window.setTimeout(() => {
-        setFadeOut(true);
-
-        window.setTimeout(() => {
-            onComplete();
-        }, 600);
+        const readyTimer = window.setTimeout(() => {
+        window.clearInterval(frameInterval);
+        setIsReady(true);
+        if (!waitForOpen) {
+            hideLoader();
+        }
         }, 5000);
 
         return () => {
         window.clearInterval(frameInterval);
-        window.clearTimeout(hideTimer);
+        window.clearTimeout(readyTimer);
+        if (finishTimerRef.current) {
+            window.clearTimeout(finishTimerRef.current);
+        }
         };
-    }, [onComplete]);
+    }, [hideLoader, waitForOpen]);
+
+    const handleOpenInvitation = () => {
+        onOpenInvitation?.();
+        hideLoader();
+    };
 
     return (
         <div
@@ -80,6 +95,17 @@ export function WeddingLoader({ onComplete }: WeddingLoaderProps) {
         <p className="mt-6 text-sm uppercase tracking-[0.3em] text-muted-foreground">
             {t('loading')}
         </p>
+        {waitForOpen && isReady && (
+            <button
+                type="button"
+                onClick={handleOpenInvitation}
+                className="mt-8 inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                data-testid="button-open-invitation"
+            >
+                {t('loading.openInvitation')}
+                <ArrowRight size={17} />
+            </button>
+        )}
         </div>
     );
 }
