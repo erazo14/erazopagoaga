@@ -206,8 +206,9 @@ export function RsvpEventDetails({ guestName }: { guestName: string }) {
 
       <section className="border-b border-border/60 py-16 sm:py-20">
         <div
-          className="rsvp-fade mx-auto grid max-w-6xl gap-12 rounded-[2rem] border border-primary/15 bg-card/70 p-6 shadow-[0_20px_60px_hsl(var(--foreground)/.07)] sm:p-10 lg:grid-cols-[.72fr_1.28fr] lg:gap-24 lg:p-12"
+          className="rsvp-fade rsvp-card-pulse mx-auto grid max-w-6xl gap-12 rounded-[2rem] border border-primary/15 bg-card/70 p-6 shadow-[0_20px_60px_hsl(var(--foreground)/.07)] sm:p-10 lg:grid-cols-[.72fr_1.28fr] lg:gap-24 lg:p-12"
           data-reveal
+          data-reveal-repeat
         >
         <div>
           <p className="eyebrow text-primary">{t('event.detailsEyebrow')}</p>
