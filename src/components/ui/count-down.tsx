@@ -65,6 +65,7 @@ const Countdown = ({ targetDate, compact = false }: CountdownProps) => {
           <p
             className="countdown-prefix display-font text-3xl font-medium sm:text-4xl"
             data-reveal
+            data-reveal-repeat
           >
             {t('event.countdownPrefix')}
           </p>
