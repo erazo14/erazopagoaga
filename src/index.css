@@ -354,13 +354,59 @@
   0%,
   100% {
     scale: 1;
-    box-shadow: 0 8px 24px hsl(var(--foreground) / .16);
+    box-shadow:
+      inset 0 1px 2px rgb(255 255 255 / .85),
+      inset 0 -3px 5px rgb(112 91 48 / .15),
+      0 8px 24px hsl(var(--foreground) / .16);
   }
 
   50% {
     scale: 1.07;
-    box-shadow: 0 11px 30px hsl(var(--foreground) / .24);
+    box-shadow:
+      inset 0 1px 2px rgb(255 255 255 / .85),
+      inset 0 -3px 5px rgb(112 91 48 / .15),
+      0 11px 30px hsl(var(--foreground) / .24);
   }
+}
+
+.invitation-wax-seal {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgb(201 185 145 / .55);
+  border-radius: 45% 55% 49% 51% / 48% 44% 56% 52%;
+  background: radial-gradient(circle at 32% 24%, #fffdf5 0%, #f4ecd8 55%, #e6d8b9 100%);
+}
+
+.invitation-wax-seal::before,
+.invitation-wax-seal::after {
+  position: absolute;
+  z-index: 0;
+  content: '';
+  background: linear-gradient(145deg, #f8f2e2, #e6d8b9);
+}
+
+.invitation-wax-seal::before {
+  bottom: -5px;
+  left: 15%;
+  width: 13px;
+  height: 17px;
+  border-radius: 35% 28% 65% 55%;
+  transform: rotate(7deg);
+}
+
+.invitation-wax-seal::after {
+  right: 14%;
+  bottom: -4px;
+  width: 10px;
+  height: 13px;
+  border-radius: 28% 35% 58% 62%;
+  transform: rotate(-8deg);
+}
+
+.invitation-wax-seal img {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 1px 0 rgb(255 255 255 / .55));
 }
 
 .invitation-seal-pulse {
