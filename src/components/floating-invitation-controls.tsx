@@ -12,12 +12,43 @@ export function FloatingInvitationControls() {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
+    const player: HTMLAudioElement = audio;
 
-    audio.volume = 0.35;
-    void audio.play().catch(() => {
-      // Browsers commonly require a visitor gesture before playing audio.
-      setIsPlaying(false);
-    });
+    player.volume = 0.35;
+    function removeGestureFallback() {
+      document.removeEventListener('pointerdown', playAfterGesture);
+      document.removeEventListener('keydown', playAfterGesture);
+      player.removeEventListener('play', removeGestureFallback);
+    }
+
+    function playAfterGesture(event: Event) {
+      const target = event.target;
+      if (
+        target instanceof Element &&
+        target.closest('[data-testid="button-toggle-wedding-music"]')
+      ) {
+        return;
+      }
+
+      void player.play().catch(() => {
+        if (player.paused) setIsPlaying(false);
+      });
+    }
+
+    document.addEventListener('pointerdown', playAfterGesture, { passive: true });
+    document.addEventListener('keydown', playAfterGesture);
+    player.addEventListener('play', removeGestureFallback);
+
+    const autoplayTimer = window.setTimeout(() => {
+      void player.play().catch(() => {
+        if (player.paused) setIsPlaying(false);
+      });
+    }, 2500);
+
+    return () => {
+      window.clearTimeout(autoplayTimer);
+      removeGestureFallback();
+    };
   }, []);
 
   const toggleAudio = async () => {
